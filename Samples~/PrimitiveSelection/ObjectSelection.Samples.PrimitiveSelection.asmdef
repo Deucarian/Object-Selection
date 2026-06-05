@@ -1,0 +1,16 @@
+{
+  "name": "JorisHoef.ObjectSelection.Samples.PrimitiveSelection",
+  "rootNamespace": "JorisHoef.ObjectSelection.Samples.PrimitiveSelection",
+  "references": [
+    "JorisHoef.ObjectSelection"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,26 @@
+{
+  "name": "com.jorishoef.object-selection",
+  "version": "1.0.0",
+  "displayName": "JorisHoef Object Selection",
+  "description": "A standalone Unity package for keyed world and object selection, selection tracking, hover tracking, raycast input adapters, and highlight hooks.",
+  "unity": "2021.3",
+  "author": {
+    "name": "JorisHoef"
+  },
+  "dependencies": {},
+  "keywords": [
+    "selection",
+    "object",
+    "world",
+    "raycast",
+    "hover",
+    "unity"
+  ],
+  "samples": [
+    {
+      "displayName": "Primitive Selection",
+      "description": "Primitive scene showing click selection, programmatic selection, current and previous selection tracking, selection events, and sample highlighting.",
+      "path": "Samples~/PrimitiveSelection"
+    }
+  ]
+}

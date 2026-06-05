@@ -1,0 +1,21 @@
+{
+  "name": "JorisHoef.ObjectSelection.Tests",
+  "rootNamespace": "JorisHoef.ObjectSelection.Tests",
+  "references": [
+    "JorisHoef.ObjectSelection"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}
