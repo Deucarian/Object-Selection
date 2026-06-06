@@ -11,6 +11,7 @@ namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
         private ObjectSelectionRegistry<string> _registry;
         private ObjectSelectionService<string> _selection;
         private SamplePrimitiveHighlighter _highlighter;
+        private ObjectSelectionVisualController<string> _visualController;
         private PrimitiveRaycastSelectionController _raycastController;
         private string _lastEvent = "No selection events yet.";
 
@@ -33,6 +34,12 @@ namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
             if (_selection != null)
             {
                 _selection.SelectionChanged -= OnSelectionChanged;
+            }
+
+            if (_visualController != null)
+            {
+                _visualController.Dispose();
+                _visualController = null;
             }
         }
 
@@ -102,11 +109,6 @@ namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs<string> args)
         {
-            if (_highlighter != null)
-            {
-                _highlighter.OnSelectionChanged(args);
-            }
-
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.CurrentKey : "(none)";
             _lastEvent = "Event: " + previous + " -> " + current + " (" + args.Reason + ")";
@@ -187,14 +189,7 @@ namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
                 _highlighter = gameObject.AddComponent<SamplePrimitiveHighlighter>();
             }
 
-            for (int i = 0; i < _keys.Length; i++)
-            {
-                GameObject target;
-                if (_objects.TryGetValue(_keys[i], out target))
-                {
-                    _highlighter.Track(target);
-                }
-            }
+            _visualController = new ObjectSelectionVisualController<string>(_selection, _highlighter);
         }
 
         private void EnsureRaycastController()

@@ -48,7 +48,9 @@ Input adapters do not own state. `RaycastSelectionController<TKey>` converts mou
 
 Hover is separate. `ObjectHoverService<TKey>` tracks current hover state and raises hover start/end/change events without changing selection state.
 
-Highlighting is an extension point. Runtime exposes `IObjectSelectionHighlighter<TKey>` and selection events; rendering decisions such as outlines, material swaps, color tints, shader effects, or scaling belong to consumers or future packages.
+Visuals are extension points. Selection and hover services decide what key is selected or hovered; visual strategies decide how that state looks. Runtime exposes `IObjectSelectionVisual<TKey>`, `IObjectHoverVisual<TKey>`, and small controller adapters that subscribe to service events and call the visual strategy. Advanced visuals such as DOTween, custom tweens, outlines, shader effects, Animator states, or VFX belong in consumers or future packages without changing selection state architecture.
+
+`IObjectSelectionHighlighter<TKey>` remains available as a low-level event hook for existing consumers.
 
 ## Public API
 
@@ -61,6 +63,12 @@ Highlighting is an extension point. Runtime exposes `IObjectSelectionHighlighter
 - `ObjectHoverService<TKey>`: hover state tracking independent from selection.
 - `HoverChangedEventArgs<TKey>`: hover event payload.
 - `RaycastSelectionController<TKey>`: mouse-to-raycast selection adapter.
+- `IObjectSelectionVisual<TKey>`: strategy contract for selected and deselected visuals.
+- `ObjectSelectionVisualController<TKey>`: subscribes to selection changes and applies an `IObjectSelectionVisual<TKey>`.
+- `IObjectHoverVisual<TKey>`: strategy contract for hovered and unhovered visuals.
+- `ObjectHoverVisualController<TKey>`: subscribes to hover changes and applies an `IObjectHoverVisual<TKey>`.
+- `RendererTintSelectionVisual<TKey>`: dependency-free renderer tint selection visual.
+- `TransformScaleSelectionVisual<TKey>`: dependency-free transform scale selection visual.
 - `IObjectSelectionHighlighter<TKey>`: selection highlight hook interface.
 
 Basic workflow:
@@ -84,6 +92,13 @@ selection.Select("cube");
 selection.ClearSelection();
 ```
 
+Selection visuals are attached separately from state:
+
+```csharp
+var visual = new RendererTintSelectionVisual<string>(Color.yellow);
+using var visualController = new ObjectSelectionVisualController<string>(selection, visual);
+```
+
 Raycast adapters are initialized with the same service:
 
 ```csharp
@@ -103,7 +118,7 @@ The package contains one sample:
 
 Open the scene and enter Play Mode. The sample creates a cube, sphere, capsule, and cylinder with keys `cube`, `sphere`, `capsule`, and `cylinder`.
 
-The sample demonstrates click selection, programmatic selection through IMGUI buttons and number keys, current selection, previous selection, selection changed events, and a simple sample-only color highlighter.
+The sample demonstrates click selection, programmatic selection through IMGUI buttons and number keys, current selection, previous selection, selection changed events, and a simple sample-only selection visual strategy.
 
 ## Integrations
 
@@ -139,6 +154,6 @@ Use branch refs for active development and release tags when tags are available.
 ## Limitations
 
 - Selection is single-item selection by key, not multi-select.
-- Runtime highlight implementations are hooks only; actual rendering effects belong in consuming code.
+- Runtime visuals are intentionally small and optional; rich rendering effects belong in consuming code or dedicated visual packages.
 - Runtime raycast input uses Unity's classic `Input` and `Physics` APIs and has no UI suppression dependency. Consumers can provide `ShouldIgnoreInput` when they want UI-aware suppression.
 - The package does not provide persistence, networking, undo/redo, UI binding, Core State bridging, or service-location infrastructure.
