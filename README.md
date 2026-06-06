@@ -26,7 +26,7 @@ For development builds, use:
 "com.jorishoef.object-selection": "https://github.com/JorisHoef/ObjectSelection.git#develop"
 ```
 
-The package requires Unity `2021.3` or newer and has no package dependencies.
+The package requires Unity `2021.3` or newer and depends on Unity's built-in `com.unity.modules.physics` module for the raycast input adapter.
 
 For local development, reference the package by file path from a separate Unity test project:
 

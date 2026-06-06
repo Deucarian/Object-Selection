@@ -48,9 +48,8 @@ if ($package.version -notmatch "^\d+\.\d+\.\d+$") {
     throw "Package version must be semver MAJOR.MINOR.PATCH: $($package.version)"
 }
 
-$dependencyCount = @($package.dependencies.PSObject.Properties).Count
-if ($dependencyCount -ne 0) {
-    throw "Runtime package should not declare package dependencies."
+if ($package.dependencies."com.unity.modules.physics" -ne "1.0.0") {
+    throw "Expected dependency com.unity.modules.physics version 1.0.0"
 }
 
 $runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/JorisHoef.ObjectSelection.asmdef") -Raw | ConvertFrom-Json

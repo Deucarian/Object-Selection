@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Declared the built-in Unity Physics module dependency required by `RaycastSelectionController<TKey>`.
 - Added optional object selection and hover visual strategy interfaces.
 - Added visual controllers that subscribe to selection or hover services without owning state.
 - Added dependency-free renderer tint and transform scale selection visuals.
