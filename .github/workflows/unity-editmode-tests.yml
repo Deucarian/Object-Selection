@@ -19,11 +19,11 @@ jobs:
           cat > ObjectSelection-TestProject/Packages/manifest.json <<JSON
           {
             "dependencies": {
-              "com.jorishoef.object-selection": "file:${package_path}",
+              "com.deucarian.object-selection": "file:${package_path}",
               "com.unity.test-framework": "1.1.33"
             },
             "testables": [
-              "com.jorishoef.object-selection"
+              "com.deucarian.object-selection"
             ]
           }
           JSON

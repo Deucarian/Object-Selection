@@ -1,7 +1,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
+namespace Deucarian.ObjectSelection.Samples.PrimitiveSelection
 {
     public sealed class SampleSelectableObject : MonoBehaviour, ISelectableObject<string>
     {

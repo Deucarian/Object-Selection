@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Simple immutable implementation of <see cref="ISelectableObject{TKey}"/>.

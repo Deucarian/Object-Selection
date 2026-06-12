@@ -1,11 +1,11 @@
 {
-  "name": "com.jorishoef.object-selection",
+  "name": "com.deucarian.object-selection",
   "version": "1.0.0",
-  "displayName": "JorisHoef Object Selection",
+  "displayName": "Deucarian Object Selection",
   "description": "A standalone Unity package for keyed world and object selection, selection tracking, hover tracking, raycast input adapters, and highlight hooks.",
   "unity": "2021.3",
   "author": {
-    "name": "JorisHoef"
+    "name": "Deucarian"
   },
   "dependencies": {
     "com.unity.modules.physics": "1.0.0"

@@ -11,7 +11,7 @@
 
 ## 1.0.0
 
-- Created standalone UPM package `com.jorishoef.object-selection`.
+- Created standalone UPM package `com.deucarian.object-selection`.
 - Added generic keyed `ObjectSelectionRegistry<TKey>` and `ObjectSelectionService<TKey>`.
 - Added current and previous selection tracking, idempotent same-key selection, and selection change events.
 - Added separate `ObjectHoverService<TKey>` with hover start, end, and change events.

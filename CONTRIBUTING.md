@@ -2,7 +2,7 @@
 
 ## Scope
 
-Object Selection is a standalone UPM package. Keep it independent from Core State, Generic UI Items, API Helper, Session Helper, UI Toolkit, UGUI, ServiceLocator, backend services, and application-specific architecture.
+Object Selection is a standalone UPM package. Keep it independent from Core State, UI Binding, API, Session, UI Toolkit, UGUI, ServiceLocator, backend services, and application-specific architecture.
 
 Selection identity must stay keyed by `TKey`. Unity objects are payloads for lookup and scene interaction; they are not the identity.
 
@@ -17,7 +17,7 @@ pwsh ./Tools/Validate-Package.ps1
 For Unity validation, use a separate test project that references this package by file path:
 
 ```json
-"com.jorishoef.object-selection": "file:C:/Repositories/ObjectSelection"
+"com.deucarian.object-selection": "file:C:/Repositories/ObjectSelection"
 ```
 
 Package source should stay in this repository. Do not copy package code into the test project.

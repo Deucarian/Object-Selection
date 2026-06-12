@@ -1,12 +1,12 @@
-# JorisHoef Object Selection
+# Deucarian Object Selection
 
 ## Overview
 
-JorisHoef Object Selection is a standalone Unity runtime package for selecting scene or Unity objects by stable keys.
+Deucarian Object Selection is a standalone Unity runtime package for selecting scene or Unity objects by stable keys.
 
 The package keeps the selection core independent from input systems. `ObjectSelectionService<TKey>` owns selection state, while click raycasts, XR interactions, hotkeys, network messages, UI buttons, editor tools, or application code can all select the same way: call `Select(key)` or `TrySelect(key)`.
 
-Package ID: `com.jorishoef.object-selection`
+Package ID: `com.deucarian.object-selection`
 
 ## Installation
 
@@ -15,7 +15,7 @@ Install the package through Unity Package Manager with a Git URL:
 ```json
 {
   "dependencies": {
-    "com.jorishoef.object-selection": "https://github.com/JorisHoef/ObjectSelection.git#main"
+    "com.deucarian.object-selection": "https://github.com/Deucarian/ObjectSelection.git#main"
   }
 }
 ```
@@ -23,7 +23,7 @@ Install the package through Unity Package Manager with a Git URL:
 For development builds, use:
 
 ```json
-"com.jorishoef.object-selection": "https://github.com/JorisHoef/ObjectSelection.git#develop"
+"com.deucarian.object-selection": "https://github.com/Deucarian/ObjectSelection.git#develop"
 ```
 
 The package requires Unity `2021.3` or newer and depends on Unity's built-in `com.unity.modules.physics` module for the raycast input adapter.
@@ -31,7 +31,7 @@ The package requires Unity `2021.3` or newer and depends on Unity's built-in `co
 For local development, reference the package by file path from a separate Unity test project:
 
 ```json
-"com.jorishoef.object-selection": "file:C:/Repositories/ObjectSelection"
+"com.deucarian.object-selection": "file:C:/Repositories/ObjectSelection"
 ```
 
 ## Core Concepts
@@ -74,7 +74,7 @@ Visuals are extension points. Selection and hover services decide what key is se
 Basic workflow:
 
 ```csharp
-using JorisHoef.ObjectSelection;
+using Deucarian.ObjectSelection;
 using UnityEngine;
 
 var registry = new ObjectSelectionRegistry<string>();
@@ -122,7 +122,7 @@ The sample demonstrates click selection, programmatic selection through IMGUI bu
 
 ## Integrations
 
-Object Selection has no compiled integration assembly and does not reference Core State, Generic UI Items, API Helper, Session Helper, UI Toolkit, UGUI, ServiceLocator, or backend architecture.
+Object Selection has no compiled integration assembly and does not reference Core State, UI Binding, API, Session, UI Toolkit, UGUI, ServiceLocator, or backend architecture.
 
 Future Core State integration should live in a bridge package that shares keys:
 
@@ -133,9 +133,9 @@ ObjectSelection-CoreState-Bridge
         ^
 CoreState
         ^
-GenericUIItems-CoreState-Bridge
+UIBinding-CoreState-Bridge
         ^
-GenericUIItems
+UIBinding
 ```
 
 This package intentionally does not implement that bridge.

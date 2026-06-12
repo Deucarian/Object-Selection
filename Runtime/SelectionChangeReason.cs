@@ -1,4 +1,4 @@
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Describes the source of a selection or hover state change.

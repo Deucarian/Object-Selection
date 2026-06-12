@@ -1,7 +1,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Defines the stable key and Unity payload for an object that can be selected.

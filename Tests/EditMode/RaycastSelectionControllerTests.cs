@@ -2,7 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection.Tests
+namespace Deucarian.ObjectSelection.Tests
 {
     public sealed class RaycastSelectionControllerTests
     {

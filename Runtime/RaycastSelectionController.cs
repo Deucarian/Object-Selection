@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Converts mouse raycasts into keyed selection commands.

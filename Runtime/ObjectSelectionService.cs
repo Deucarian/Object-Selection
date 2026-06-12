@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Tracks current and previous selection by stable key.

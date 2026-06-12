@@ -1,4 +1,4 @@
-namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
+namespace Deucarian.ObjectSelection.Samples.PrimitiveSelection
 {
     public sealed class PrimitiveRaycastSelectionController : RaycastSelectionController<string>
     {

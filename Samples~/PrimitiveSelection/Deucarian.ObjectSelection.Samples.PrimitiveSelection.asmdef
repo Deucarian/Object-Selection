@@ -1,8 +1,8 @@
 {
-  "name": "JorisHoef.ObjectSelection.Samples.PrimitiveSelection",
-  "rootNamespace": "JorisHoef.ObjectSelection.Samples.PrimitiveSelection",
+  "name": "Deucarian.ObjectSelection.Samples.PrimitiveSelection",
+  "rootNamespace": "Deucarian.ObjectSelection.Samples.PrimitiveSelection",
   "references": [
-    "JorisHoef.ObjectSelection"
+    "Deucarian.ObjectSelection"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

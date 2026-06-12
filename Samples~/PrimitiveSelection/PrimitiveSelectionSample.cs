@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
+namespace Deucarian.ObjectSelection.Samples.PrimitiveSelection
 {
     public sealed class PrimitiveSelectionSample : MonoBehaviour
     {
@@ -70,7 +70,7 @@ namespace JorisHoef.ObjectSelection.Samples.PrimitiveSelection
         private void OnGUI()
         {
             GUILayout.BeginArea(new Rect(16f, 16f, 340f, 220f), GUI.skin.box);
-            GUILayout.Label("JorisHoef Object Selection");
+            GUILayout.Label("Deucarian Object Selection");
             GUILayout.Label("Current: " + (_selection.HasSelection ? _selection.CurrentKey : "(none)"));
             GUILayout.Label("Previous: " + (_selection.HasPreviousSelection ? _selection.PreviousKey : "(none)"));
             GUILayout.Label(_lastEvent);

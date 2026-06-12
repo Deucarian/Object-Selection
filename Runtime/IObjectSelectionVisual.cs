@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Defines how a selected or deselected object should be represented visually.

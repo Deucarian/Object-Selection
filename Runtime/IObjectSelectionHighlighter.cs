@@ -1,4 +1,4 @@
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Defines a hook for consumer-owned selection highlighting.

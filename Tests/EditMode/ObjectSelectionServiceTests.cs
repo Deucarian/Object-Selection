@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace JorisHoef.ObjectSelection.Tests
+namespace Deucarian.ObjectSelection.Tests
 {
     public sealed class ObjectSelectionServiceTests
     {

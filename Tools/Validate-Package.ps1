@@ -7,9 +7,9 @@ $requiredFiles = @(
     "CHANGELOG.md",
     "LICENSE.md",
     "CONTRIBUTING.md",
-    "Runtime/JorisHoef.ObjectSelection.asmdef",
-    "Tests/EditMode/JorisHoef.ObjectSelection.Tests.asmdef",
-    "Samples~/PrimitiveSelection/ObjectSelection.Samples.PrimitiveSelection.asmdef",
+    "Runtime/Deucarian.ObjectSelection.asmdef",
+    "Tests/EditMode/Deucarian.ObjectSelection.Tests.asmdef",
+    "Samples~/PrimitiveSelection/Deucarian.ObjectSelection.Samples.PrimitiveSelection.asmdef",
     "Samples~/PrimitiveSelection/PrimitiveSelection.unity"
 )
 
@@ -36,11 +36,11 @@ foreach ($file in $requiredFiles) {
 }
 
 $package = Get-Content -LiteralPath (Join-Path $root "package.json") -Raw | ConvertFrom-Json
-if ($package.name -ne "com.jorishoef.object-selection") {
+if ($package.name -ne "com.deucarian.object-selection") {
     throw "Unexpected package name: $($package.name)"
 }
 
-if ($package.displayName -ne "JorisHoef Object Selection") {
+if ($package.displayName -ne "Deucarian Object Selection") {
     throw "Unexpected package display name: $($package.displayName)"
 }
 
@@ -52,8 +52,8 @@ if ($package.dependencies."com.unity.modules.physics" -ne "1.0.0") {
     throw "Expected dependency com.unity.modules.physics version 1.0.0"
 }
 
-$runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/JorisHoef.ObjectSelection.asmdef") -Raw | ConvertFrom-Json
-if ($runtimeAsmdef.name -ne "JorisHoef.ObjectSelection") {
+$runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/Deucarian.ObjectSelection.asmdef") -Raw | ConvertFrom-Json
+if ($runtimeAsmdef.name -ne "Deucarian.ObjectSelection") {
     throw "Unexpected runtime asmdef name: $($runtimeAsmdef.name)"
 }
 
@@ -61,22 +61,22 @@ if ($runtimeAsmdef.references.Count -ne 0) {
     throw "Runtime asmdef must not reference other assemblies."
 }
 
-$testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/JorisHoef.ObjectSelection.Tests.asmdef") -Raw | ConvertFrom-Json
-if ($testAsmdef.references -notcontains "JorisHoef.ObjectSelection") {
-    throw "Tests asmdef must reference JorisHoef.ObjectSelection"
+$testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/Deucarian.ObjectSelection.Tests.asmdef") -Raw | ConvertFrom-Json
+if ($testAsmdef.references -notcontains "Deucarian.ObjectSelection") {
+    throw "Tests asmdef must reference Deucarian.ObjectSelection"
 }
 
-$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/PrimitiveSelection/ObjectSelection.Samples.PrimitiveSelection.asmdef") -Raw | ConvertFrom-Json
-if ($sampleAsmdef.references -notcontains "JorisHoef.ObjectSelection") {
-    throw "Sample asmdef must reference JorisHoef.ObjectSelection"
+$sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/PrimitiveSelection/Deucarian.ObjectSelection.Samples.PrimitiveSelection.asmdef") -Raw | ConvertFrom-Json
+if ($sampleAsmdef.references -notcontains "Deucarian.ObjectSelection") {
+    throw "Sample asmdef must reference Deucarian.ObjectSelection"
 }
 
 $forbiddenReferences = @(
     "CoreState",
     "Core.State",
-    "GenericUIItems",
-    "APIHelper",
-    "SessionHelper",
+    "UIBinding",
+    "API",
+    "Session",
     "UnityEngine.UI",
     "UnityEngine.EventSystems",
     "ServiceLocator"
@@ -106,4 +106,4 @@ if ($generatedArtifacts.Count -gt 0) {
     throw "Generated artifacts are present in the package repository."
 }
 
-Write-Host "JorisHoef Object Selection package validation passed."
+Write-Host "Deucarian Object Selection package validation passed."

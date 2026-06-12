@@ -1,8 +1,8 @@
 {
-  "name": "JorisHoef.ObjectSelection.Tests",
-  "rootNamespace": "JorisHoef.ObjectSelection.Tests",
+  "name": "Deucarian.ObjectSelection.Tests",
+  "rootNamespace": "Deucarian.ObjectSelection.Tests",
   "references": [
-    "JorisHoef.ObjectSelection"
+    "Deucarian.ObjectSelection"
   ],
   "includePlatforms": [
     "Editor"

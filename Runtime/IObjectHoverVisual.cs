@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace JorisHoef.ObjectSelection
+namespace Deucarian.ObjectSelection
 {
     /// <summary>
     /// Defines how a hovered or unhovered object should be represented visually.
