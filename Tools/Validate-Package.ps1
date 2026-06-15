@@ -52,13 +52,17 @@ if ($package.dependencies."com.unity.modules.physics" -ne "1.0.0") {
     throw "Expected dependency com.unity.modules.physics version 1.0.0"
 }
 
+if ($package.dependencies."com.deucarian.logging" -ne "0.2.2") {
+    throw "Expected dependency com.deucarian.logging version 0.2.2"
+}
+
 $runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/Deucarian.ObjectSelection.asmdef") -Raw | ConvertFrom-Json
 if ($runtimeAsmdef.name -ne "Deucarian.ObjectSelection") {
     throw "Unexpected runtime asmdef name: $($runtimeAsmdef.name)"
 }
 
-if ($runtimeAsmdef.references.Count -ne 0) {
-    throw "Runtime asmdef must not reference other assemblies."
+if ($runtimeAsmdef.references -notcontains "Deucarian.Logging") {
+    throw "Runtime asmdef must reference Deucarian.Logging"
 }
 
 $testAsmdef = Get-Content -LiteralPath (Join-Path $root "Tests/EditMode/Deucarian.ObjectSelection.Tests.asmdef") -Raw | ConvertFrom-Json
@@ -69,6 +73,10 @@ if ($testAsmdef.references -notcontains "Deucarian.ObjectSelection") {
 $sampleAsmdef = Get-Content -LiteralPath (Join-Path $root "Samples~/PrimitiveSelection/Deucarian.ObjectSelection.Samples.PrimitiveSelection.asmdef") -Raw | ConvertFrom-Json
 if ($sampleAsmdef.references -notcontains "Deucarian.ObjectSelection") {
     throw "Sample asmdef must reference Deucarian.ObjectSelection"
+}
+
+if ($sampleAsmdef.references -notcontains "Deucarian.Logging") {
+    throw "Sample asmdef must reference Deucarian.Logging"
 }
 
 $forbiddenReferences = @(

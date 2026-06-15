@@ -1,7 +1,9 @@
 {
   "name": "Deucarian.ObjectSelection",
   "rootNamespace": "Deucarian.ObjectSelection",
-  "references": [],
+  "references": [
+    "Deucarian.Logging"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

@@ -112,7 +112,7 @@ namespace Deucarian.ObjectSelection.Samples.PrimitiveSelection
             string previous = args.HadPreviousSelection ? args.PreviousKey : "(none)";
             string current = args.HasSelection ? args.CurrentKey : "(none)";
             _lastEvent = "Event: " + previous + " -> " + current + " (" + args.Reason + ")";
-            Debug.Log(_lastEvent);
+            SelectionLog.Samples.Info(_lastEvent);
         }
 
         private void EnsureCamera()

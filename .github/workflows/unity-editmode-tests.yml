@@ -19,6 +19,7 @@ jobs:
           cat > ObjectSelection-TestProject/Packages/manifest.json <<JSON
           {
             "dependencies": {
+              "com.deucarian.logging": "https://github.com/Deucarian/Logging.git#main",
               "com.deucarian.object-selection": "file:${package_path}",
               "com.unity.test-framework": "1.1.33"
             },

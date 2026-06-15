@@ -26,7 +26,13 @@ For development builds, use:
 "com.deucarian.object-selection": "https://github.com/Deucarian/ObjectSelection.git#develop"
 ```
 
-The package requires Unity `2021.3` or newer and depends on Unity's built-in `com.unity.modules.physics` module for the raycast input adapter.
+The package requires Unity `2021.3` or newer and depends on `com.deucarian.logging` plus Unity's built-in `com.unity.modules.physics` module for the raycast input adapter.
+
+## Logging
+
+This package uses `com.deucarian.logging`.
+
+Object Selection diagnostics use stable package categories: `Selection` and `Selection.Samples`. Configure Deucarian Logging filters by category and level to isolate package or sample output. Entries flow through the shared ring buffer for recent-diagnostic inspection and remain compatible with future telemetry sinks.
 
 For local development, reference the package by file path from a separate Unity test project:
 
@@ -85,7 +91,7 @@ registry.Register(new SelectableObject<string>("cube", cube));
 
 selection.SelectionChanged += (_, args) =>
 {
-    Debug.Log($"Selected {args.CurrentKey}; previous was {args.PreviousKey}");
+    SelectionLog.General.Info($"Selected {args.CurrentKey}; previous was {args.PreviousKey}");
 };
 
 selection.Select("cube");
@@ -142,7 +148,7 @@ This package intentionally does not implement that bridge.
 
 ## Versioning
 
-Current package version: `1.0.0`.
+Current package version: `1.0.1`.
 
 Branch strategy:
 
