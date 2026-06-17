@@ -52,8 +52,8 @@ if ($package.dependencies."com.unity.modules.physics" -ne "1.0.0") {
     throw "Expected dependency com.unity.modules.physics version 1.0.0"
 }
 
-if ($package.dependencies."com.deucarian.logging" -ne "0.2.2") {
-    throw "Expected dependency com.deucarian.logging version 0.2.2"
+if ($package.dependencies."com.deucarian.logging" -ne "0.2.5") {
+    throw "Expected dependency com.deucarian.logging version 0.2.5"
 }
 
 $runtimeAsmdef = Get-Content -LiteralPath (Join-Path $root "Runtime/Deucarian.ObjectSelection.asmdef") -Raw | ConvertFrom-Json

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 - 2026-06-17
+
+- Renamed package ecosystem references from Core State bridge packages to Integration packages.
+
 ## Unreleased
 
 - Declared the built-in Unity Physics module dependency required by `RaycastSelectionController<TKey>`.

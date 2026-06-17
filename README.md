@@ -130,25 +130,25 @@ The sample demonstrates click selection, programmatic selection through IMGUI bu
 
 Object Selection has no compiled integration assembly and does not reference Core State, UI Binding, API, Session, UI Toolkit, UGUI, ServiceLocator, or backend architecture.
 
-Future Core State integration should live in a bridge package that shares keys:
+Future Core State integration should live in an integration package that shares keys:
 
 ```text
 ObjectSelection
         ^
-ObjectSelection-CoreState-Bridge
+ObjectSelection-CoreState-Integration
         ^
 CoreState
         ^
-UIBinding-CoreState-Bridge
+UIBinding-CoreState-Integration
         ^
 UIBinding
 ```
 
-This package intentionally does not implement that bridge.
+This package intentionally does not implement that integration.
 
 ## Versioning
 
-Current package version: `1.0.1`.
+Current package version: `1.0.2`.
 
 Branch strategy:
 

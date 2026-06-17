@@ -28,4 +28,4 @@ Package source should stay in this repository. Do not copy package code into the
 - Add or update EditMode tests for behavior changes.
 - Keep runtime asmdef free of editor-only references.
 - Do not add dependencies beyond what the package actually uses.
-- Put bridges to other packages in separate bridge packages, not in this runtime.
+- Put integrations to other packages in separate integration packages, not in this runtime.
