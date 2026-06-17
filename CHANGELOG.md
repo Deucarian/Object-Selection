@@ -9,6 +9,11 @@
 - Updated the Primitive Selection sample to use a visual strategy controller.
 - Added EditMode coverage for selection visual controller behavior.
 
+## 1.0.1
+
+- Standardized package logging on com.deucarian.logging.
+- Added `SelectionLog` package categories for selection package and sample diagnostics.
+
 ## 1.0.0
 
 - Created standalone UPM package `com.deucarian.object-selection`.

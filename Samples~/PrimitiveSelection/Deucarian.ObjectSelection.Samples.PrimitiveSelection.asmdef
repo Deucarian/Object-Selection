@@ -2,7 +2,8 @@
   "name": "Deucarian.ObjectSelection.Samples.PrimitiveSelection",
   "rootNamespace": "Deucarian.ObjectSelection.Samples.PrimitiveSelection",
   "references": [
-    "Deucarian.ObjectSelection"
+    "Deucarian.ObjectSelection",
+    "Deucarian.Logging"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
