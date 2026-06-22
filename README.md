@@ -163,3 +163,9 @@ Use branch refs for active development and release tags when tags are available.
 - Runtime visuals are intentionally small and optional; rich rendering effects belong in consuming code or dedicated visual packages.
 - Runtime raycast input uses Unity's classic `Input` and `Physics` APIs and has no UI suppression dependency. Consumers can provide `ShouldIgnoreInput` when they want UI-aware suppression.
 - The package does not provide persistence, networking, undo/redo, UI binding, Core State bridging, or service-location infrastructure.
+
+## Architecture / Contributor Notes
+
+- [AGENTS.md](AGENTS.md) contains repository-specific ownership and Codex guidance.
+- Deucarian architecture rules live in [Package Registry](https://github.com/Deucarian/Package-Registry/blob/develop/ARCHITECTURE.md).
+- Capability ownership is tracked in [CAPABILITY_OWNERSHIP.md](https://github.com/Deucarian/Package-Registry/blob/develop/CAPABILITY_OWNERSHIP.md).
