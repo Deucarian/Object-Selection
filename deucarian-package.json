@@ -1,0 +1,25 @@
+{
+  "packageId": "com.deucarian.object-selection",
+  "displayName": "Deucarian Object Selection",
+  "ownedCapabilities": [
+    "world-selection"
+  ],
+  "runtimeAssemblies": [
+    "Deucarian.ObjectSelection"
+  ],
+  "editorAssemblies": [],
+  "sampleAssemblies": [
+    "Deucarian.ObjectSelection.Samples.PrimitiveSelection"
+  ],
+  "testAssemblies": [
+    "Deucarian.ObjectSelection.Tests"
+  ],
+  "requiredDependencies": [
+    "com.deucarian.logging",
+    "com.unity.modules.physics"
+  ],
+  "optionalVersionDefinedDependencies": [],
+  "allowedDirectDebugCalls": [],
+  "allowedDirectUnityObjectLifetimeCalls": [],
+  "expectedSamplesRoot": "Samples~"
+}
