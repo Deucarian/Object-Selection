@@ -148,7 +148,7 @@ This package intentionally does not implement that integration.
 
 ## Versioning
 
-Current package version: `1.0.2`.
+Current package version: `1.0.3`.
 
 Branch strategy:
 
