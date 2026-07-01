@@ -1,32 +1,48 @@
 # Deucarian Object Selection
 
-## Overview
+## What this is
 
-Deucarian Object Selection is a standalone Unity runtime package for selecting scene or Unity objects by stable keys.
+`com.deucarian.object-selection` is a standalone Unity runtime package for selecting scene or Unity objects by stable keys.
 
 The package keeps the selection core independent from input systems. `ObjectSelectionService<TKey>` owns selection state, while click raycasts, XR interactions, hotkeys, network messages, UI buttons, editor tools, or application code can all select the same way: call `Select(key)` or `TrySelect(key)`.
 
-Package ID: `com.deucarian.object-selection`
+Current package version: `1.0.3`.
 
-## Installation
+## When to use it
 
-Install the package through Unity Package Manager with a Git URL:
+- You need stable-key world/object selection independent from input source.
+- You need registry lookup from keys, Unity objects, GameObjects, or Components.
+- You need separate selection and hover services with optional visual strategy hooks.
+- You need a simple classic-Input/Physics raycast adapter for mouse selection.
+
+## When not to use it
+
+- Do not use Object Selection for Core State synchronization; use the integration package.
+- Do not add UI Binding, API, Session, persistence, networking, or service-location behavior here.
+- Do not put rich visual effects or package-specific selection visuals in the core package.
+
+## Install
+
+Stable:
 
 ```json
-{
-  "dependencies": {
-    "com.deucarian.object-selection": "https://github.com/Deucarian/ObjectSelection.git#main"
-  }
-}
+"com.deucarian.object-selection": "https://github.com/Deucarian/Object-Selection.git#main"
 ```
 
-For development builds, use:
+Development:
 
 ```json
-"com.deucarian.object-selection": "https://github.com/Deucarian/ObjectSelection.git#develop"
+"com.deucarian.object-selection": "https://github.com/Deucarian/Object-Selection.git#develop"
 ```
 
-The package requires Unity `2021.3` or newer and depends on `com.deucarian.logging` plus Unity's built-in `com.unity.modules.physics` module for the raycast input adapter.
+Dependencies:
+
+- `com.deucarian.logging`: package logging facade and diagnostics output.
+- `com.unity.modules.physics`: Unity physics module used by selection/raycast behavior.
+
+## Unity compatibility
+
+Requires Unity 2021.3 or newer.
 
 ## Logging
 
@@ -37,10 +53,10 @@ Object Selection diagnostics use stable package categories: `Selection` and `Sel
 For local development, reference the package by file path from a separate Unity test project:
 
 ```json
-"com.deucarian.object-selection": "file:C:/Repositories/ObjectSelection"
+"com.deucarian.object-selection": "file:C:/Repositories/Object-Selection"
 ```
 
-## Core Concepts
+## 60-second quick start
 
 Selection identity is always `TKey`. `GameObject`, `Component`, and `UnityEngine.Object` references are payloads that can be resolved through the registry, but they are not the identity.
 
@@ -58,7 +74,7 @@ Visuals are extension points. Selection and hover services decide what key is se
 
 `IObjectSelectionHighlighter<TKey>` remains available as a low-level event hook for existing consumers.
 
-## Public API
+## Public API map
 
 - `ISelectableObject<TKey>`: selectable object contract.
 - `SelectableObject<TKey>`: simple immutable selectable object implementation.
@@ -146,17 +162,6 @@ UIBinding
 
 This package intentionally does not implement that integration.
 
-## Versioning
-
-Current package version: `1.0.3`.
-
-Branch strategy:
-
-- `main`: stable package branch.
-- `develop`: development package branch.
-
-Use branch refs for active development and release tags when tags are available.
-
 ## Limitations
 
 - Selection is single-item selection by key, not multi-select.
@@ -164,8 +169,34 @@ Use branch refs for active development and release tags when tags are available.
 - Runtime raycast input uses Unity's classic `Input` and `Physics` APIs and has no UI suppression dependency. Consumers can provide `ShouldIgnoreInput` when they want UI-aware suppression.
 - The package does not provide persistence, networking, undo/redo, UI binding, Core State bridging, or service-location infrastructure.
 
+## Troubleshooting
+
+- If a key cannot be selected, confirm it is registered in `ObjectSelectionRegistry<TKey>`.
+- If raycast input selects through UI, provide `ShouldIgnoreInput` from the consuming project.
+- If visuals do not update, confirm the visual controller is subscribed to the same selection or hover service instance.
+
+## Validation
+
+Run the shared package validator from the repository root:
+
+```powershell
+python C:/Repositories/Package-Registry/Tools/deucarian_package_validator.py --registry-root C:/Repositories/Package-Registry --repository-root . --config deucarian-package.json
+```
+
+Run the package's EditMode tests in Unity after code or assembly definition changes.
+
+Documentation-only updates should still pass:
+
+```powershell
+git diff --check
+```
+
 ## Architecture / Contributor Notes
 
 - [AGENTS.md](AGENTS.md) contains repository-specific ownership and Codex guidance.
 - Deucarian architecture rules live in [Package Registry](https://github.com/Deucarian/Package-Registry/blob/develop/ARCHITECTURE.md).
 - Capability ownership is tracked in [CAPABILITY_OWNERSHIP.md](https://github.com/Deucarian/Package-Registry/blob/develop/CAPABILITY_OWNERSHIP.md).
+
+## License
+
+See [LICENSE.md](LICENSE.md).
