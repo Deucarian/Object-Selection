@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2026-07-17
+
+- Applied the portfolio sample contract and aligned the exact Logging dependency.
+
 ## 1.0.3 - 2026-06-22
 
 - Accepted the public release automation state for `com.deucarian.object-selection` 1.0.3 on develop.

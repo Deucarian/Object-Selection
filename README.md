@@ -6,7 +6,7 @@
 
 The package keeps the selection core independent from input systems. `ObjectSelectionService<TKey>` owns selection state, while click raycasts, XR interactions, hotkeys, network messages, UI buttons, editor tools, or application code can all select the same way: call `Select(key)` or `TrySelect(key)`.
 
-Current package version: `1.0.3`.
+Current package version: `1.0.4`.
 
 ## When to use it
 

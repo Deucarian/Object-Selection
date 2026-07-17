@@ -1,6 +1,7 @@
 {
   "packageId": "com.deucarian.object-selection",
   "displayName": "Deucarian Object Selection",
+  "samplePolicy": "playable-scene",
   "ownedCapabilities": [
     "world-selection"
   ],
