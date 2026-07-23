@@ -9,8 +9,11 @@ namespace Deucarian.ObjectSelection
     /// Tracks current and previous selection by stable key.
     /// </summary>
     /// <typeparam name="TKey">The stable selection key type.</typeparam>
-    public sealed class ObjectSelectionService<TKey>
+    public sealed class ObjectSelectionService<TKey> :
+        IReadOnlyObjectSelection<TKey>,
+        IObjectSelectionCommands<TKey>
     {
+        private readonly IReadOnlyObjectSelectionRegistry<TKey> _selectionRegistry;
         private readonly ObjectSelectionRegistry<TKey> _registry;
         private bool _hasSelection;
         private TKey _currentKey;
@@ -23,13 +26,20 @@ namespace Deucarian.ObjectSelection
         /// </summary>
         /// <param name="registry">The registry used to resolve selected keys.</param>
         public ObjectSelectionService(ObjectSelectionRegistry<TKey> registry)
+            : this((IReadOnlyObjectSelectionRegistry<TKey>)registry)
+        {
+            _registry = registry;
+        }
+
+        public ObjectSelectionService(IReadOnlyObjectSelectionRegistry<TKey> registry)
         {
             if (registry == null)
             {
                 throw new ArgumentNullException(nameof(registry));
             }
 
-            _registry = registry;
+            _selectionRegistry = registry;
+            _registry = registry as ObjectSelectionRegistry<TKey>;
         }
 
         /// <summary>
@@ -43,6 +53,11 @@ namespace Deucarian.ObjectSelection
         public ObjectSelectionRegistry<TKey> Registry
         {
             get { return _registry; }
+        }
+
+        public IReadOnlyObjectSelectionRegistry<TKey> SelectionRegistry
+        {
+            get { return _selectionRegistry; }
         }
 
         /// <summary>
@@ -90,7 +105,7 @@ namespace Deucarian.ObjectSelection
                 }
 
                 Object targetObject;
-                return _registry.TryGetObject(_currentKey, out targetObject) ? targetObject : null;
+                return _selectionRegistry.TryGetObject(_currentKey, out targetObject) ? targetObject : null;
             }
         }
 
@@ -142,7 +157,7 @@ namespace Deucarian.ObjectSelection
             }
 
             Object currentObject;
-            if (!_registry.TryGetObject(key, out currentObject))
+            if (!_selectionRegistry.TryGetObject(key, out currentObject))
             {
                 return false;
             }

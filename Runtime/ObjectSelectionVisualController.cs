@@ -11,7 +11,7 @@ namespace Deucarian.ObjectSelection
     /// <typeparam name="TKey">The stable selection key type.</typeparam>
     public sealed class ObjectSelectionVisualController<TKey> : IDisposable
     {
-        private readonly ObjectSelectionService<TKey> _selectionService;
+        private readonly IReadOnlyObjectSelection<TKey> _selectionService;
         private readonly IObjectSelectionVisual<TKey> _visual;
 
         private bool _hasAppliedSelection;
@@ -26,7 +26,7 @@ namespace Deucarian.ObjectSelection
         /// <param name="visual">The visual strategy that decides how selection looks.</param>
         /// <param name="applyCurrentSelection">When true, immediately applies the current selection if one exists.</param>
         public ObjectSelectionVisualController(
-            ObjectSelectionService<TKey> selectionService,
+            IReadOnlyObjectSelection<TKey> selectionService,
             IObjectSelectionVisual<TKey> visual,
             bool applyCurrentSelection = true)
         {
