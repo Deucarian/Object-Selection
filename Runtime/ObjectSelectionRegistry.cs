@@ -9,7 +9,7 @@ namespace Deucarian.ObjectSelection
     /// Stores the mappings between stable selection keys and Unity objects.
     /// </summary>
     /// <typeparam name="TKey">The stable selection key type.</typeparam>
-    public sealed class ObjectSelectionRegistry<TKey>
+    public sealed class ObjectSelectionRegistry<TKey> : IObjectSelectionRegistry<TKey>
     {
         private readonly Dictionary<TKey, ISelectableObject<TKey>> _selectables =
             new Dictionary<TKey, ISelectableObject<TKey>>();
