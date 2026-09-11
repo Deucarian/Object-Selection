@@ -1,0 +1,6 @@
+{
+  "name": "Deucarian.ObjectSelection.Samples.DefinitionWorkflow",
+  "references": [
+    "Deucarian.ObjectSelection"
+  ]
+}

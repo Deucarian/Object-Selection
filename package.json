@@ -1,6 +1,6 @@
 {
   "name": "com.deucarian.object-selection",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "displayName": "Deucarian Object Selection",
   "description": "A standalone Unity package for keyed world and object selection, selection tracking, hover tracking, raycast input adapters, and highlight hooks.",
   "unity": "2021.3",
@@ -28,6 +28,11 @@
       "displayName": "Primitive Selection",
       "description": "Primitive scene showing click selection, programmatic selection, current and previous selection tracking, selection events, and sample highlighting.",
       "path": "Samples~/PrimitiveSelection"
+    },
+    {
+      "displayName": "Definition Workflow",
+      "description": "Playable scene with typed C# calls, Inspector components, editable definitions and shared host ownership.",
+      "path": "Samples~/DefinitionWorkflow"
     }
   ]
 }
