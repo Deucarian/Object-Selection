@@ -1,5 +1,7 @@
 # Deucarian Object Selection
 
+For simple calls and setup, see [Simple usage](Documentation~/SimpleUsage.md).
+
 ## What this is
 
 `com.deucarian.object-selection` is a standalone Unity runtime package for selecting scene or Unity objects by stable keys.
