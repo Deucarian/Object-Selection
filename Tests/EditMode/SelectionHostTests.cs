@@ -15,13 +15,15 @@ namespace Deucarian.ObjectSelection.Tests
             {
                 var a = first.AddComponent<SelectionHost>();
                 var b = second.AddComponent<SelectionHost>();
-                a.Register("item", target); b.Register("item", target);
-                a.Select("item");
+                var firstHandle = a.Register(target); var secondHandle = b.Register(target);
+                a.Select(firstHandle);
                 Assert.That(b.Selection.HasSelection, Is.False);
-                b.Select("item");
-                a.Unregister("item");
+                Assert.That(b.Select(firstHandle), Is.EqualTo(SelectionRequestResult.ForeignScope));
+                b.Select(secondHandle);
+                a.Unregister(firstHandle);
                 Assert.That(a.Selection.HasSelection, Is.False);
-                Assert.That(b.Selection.CurrentKey, Is.EqualTo("item"));
+                Assert.That(b.Selection.CurrentKey, Is.SameAs(secondHandle));
+                Assert.That(a.Select(firstHandle), Is.EqualTo(SelectionRequestResult.Unavailable));
             }
             finally
             {
