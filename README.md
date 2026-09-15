@@ -1,12 +1,24 @@
 # Deucarian Object Selection
 
+## Typed definition workflow
+
+Selectable registers a real scene object while enabled. Its handle belongs to the host scope; no invented global ID is needed.
+
+Start with the [Definition Workflow walkthrough](Documentation~/DefinitionWorkflow.md).
+Import **Definition Workflow** in Package Manager for a configured sample scene
+and short caller scripts. The sample keeps typed contracts and service setup explicit, with reusable
+components for scene callers.
+
+
+For simple calls and setup, see [Simple usage](Documentation~/SimpleUsage.md).
+
 ## What this is
 
 `com.deucarian.object-selection` is a standalone Unity runtime package for selecting scene or Unity objects by stable keys.
 
 The package keeps the selection core independent from input systems. `ObjectSelectionService<TKey>` owns selection state, while click raycasts, XR interactions, hotkeys, network messages, UI buttons, editor tools, or application code can all select the same way: call `Select(key)` or `TrySelect(key)`.
 
-Current package version: `1.0.4`.
+Current package version: `1.1.0`.
 
 ## When to use it
 

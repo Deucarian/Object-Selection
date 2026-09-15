@@ -10,6 +10,7 @@
   ],
   "editorAssemblies": [],
   "sampleAssemblies": [
+    "Deucarian.ObjectSelection.Samples.DefinitionWorkflow",
     "Deucarian.ObjectSelection.Samples.PrimitiveSelection"
   ],
   "testAssemblies": [
