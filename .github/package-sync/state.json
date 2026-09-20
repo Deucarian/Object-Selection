@@ -1,0 +1,12 @@
+{
+  "channels": {
+    "develop": {
+      "bitbucketCommit": "b48b3805c5c5e8e329e10b021bb4b615b3719143",
+      "githubBaseline": "d12e458c60d621fa0f4a7e7454aeb871fe06a967"
+    },
+    "main": {
+      "bitbucketCommit": "3256ed347cb67e6a77cdd37eca73410932778196",
+      "githubBaseline": "5e215f8e08cbfb67af3d03506daef9742d3fd4a6"
+    }
+  }
+}
